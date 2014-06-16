@@ -9,18 +9,18 @@ shinyUI(pageWithSidebar(
 
 	# Sidebar with a slider input for number of observations
 	sidebarPanel(   
-		tags$label("Yahoo Ticker(s) separados por coma o nueva linea:"),
+		tags$label("Simbolos de Yahoo separados por coma o una nueva linea:"),
 		tags$textarea(id = "symbols", rows=10, cols=10, "XLY,XLP,XLE,XLF\nXLV,XLI,XLB,XLK\nXLU"),
 		#createNonReactiveTextInputCustom("symbols", "Yahoo Ticker(s) separated by comma or new line:", "textarea", "Update", enableEnter=F, opts=list(rows=10, cols=10, "XLY,XLP,XLE,XLF\nXLV,XLI,XLB,XLK\nXLU")),
 
 
 		br(),
-		selectInput("momLen", strong("Momentum Largo (meses):"), choices =  1:12,selected=6),
-		numericInput("topn", "Invest in top # funds:", 2),
-		numericInput("keepn", "Mantener Posicion hasta que ranking sea al menos:", 6),				
+		selectInput("momLen", strong("Período Momentum:"), choices =  1:12,selected=6),
+		numericInput("topn", "# Fondos a Invertir:", 2),
+		numericInput("keepn", "Mantener mientras ranking no caiga de:", 6),				
 		br(),
 		submitButton("Ejecutar"),
-		htmlOutput("status")
+		htmlOutput("Status")
 	),
 
 
@@ -36,7 +36,7 @@ shinyUI(pageWithSidebar(
 				tableOutput("annualTable"),
 				h4("Mapa de Allocations"),
 				plotOutput("transitionPlot"),
-				h4("Last 20 Trades"),
+				h4("Ultimos 20 Trades"),
 				tableOutput("tradesTable"),				
 				downloadButton("downloadReport", "Descarga Reporte"),
 				downloadButton("downloadData", "Descarga Data"),
@@ -50,7 +50,7 @@ shinyUI(pageWithSidebar(
 				'. Basado en',
 				a('Multi-Asset Backtest : Rotational Trading Strategies', href="http://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/", target="_blank"),
 				'post.'), 				
-				p('La estrategia de rotacion de sectores selecciona los mejores N fondos (ej 2 fondos) basedo en el momentum (ej. mejor retorno de últimos 6 meses)
+				p('La estrategia de rotacion de sectores selecciona los mejores N fondos (ej 2 fondos) basado en Momentum (ej. mejor retorno de últimos 6 meses)
 				y ajusta la permanencia solo si estos fondos caen en su ranking de momentum bajo un cierto nivel.
 				Se basa también en',		
 				a('ETF Sector Strategy', href="http://www.etfscreen.com/sectorstrategy.php", target="_blank"),
