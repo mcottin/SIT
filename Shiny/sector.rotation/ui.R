@@ -17,7 +17,7 @@ shinyUI(pageWithSidebar(
 		br(),
 		selectInput("momLen", strong("Período Momentum:"), choices =  1:12,selected=6),
 		numericInput("topn", "# Fondos a Invertir:", 2),
-		numericInput("keepn", "Mantener mientras ranking no caiga de:", 6),				
+		numericInput("keepn", "Mantener mientras ranking no baje de:", 6),				
 		br(),
 		submitButton("Ejecutar"),
 		htmlOutput("Status")
@@ -60,7 +60,7 @@ shinyUI(pageWithSidebar(
 				br(),
 
 
-				strong('Autor'), p('Mauricio Cottin', a('Systemix Capital', href="http://systemixcapital.cl", target="_blank")),
+				strong('Autor'), p('Mauricio Cottin, ', a('Systemix Capital', href="http://systemixcapital.cl", target="_blank")),
 
 
 				br(),
