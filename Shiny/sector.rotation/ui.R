@@ -10,17 +10,17 @@ shinyUI(pageWithSidebar(
 	# Sidebar with a slider input for number of observations
 	sidebarPanel( 
 		strong("ALGORITMO DE ROTACION  DE  SECTORES"),
-		br(),
-		
-		tags$label("Simbolos de Yahoo separados por coma o una nueva linea:"),
+		br(),br(),
+		p("Simbolos de Yahoo"),br(),
+		tags$label("separados por coma o una nueva linea:"),
 		tags$textarea(id = "symbols", rows=10, cols=10, "XLY,XLP,XLE,XLF\nXLV,XLI,XLB,XLK\nXLU"),
 		#createNonReactiveTextInputCustom("symbols", "Yahoo Ticker(s) separated by comma or new line:", "textarea", "Update", enableEnter=F, opts=list(rows=10, cols=10, "XLY,XLP,XLE,XLF\nXLV,XLI,XLB,XLK\nXLU")),
 
 
 		br(),
-		selectInput("momLen", strong("Período Momentum:"), choices =  1:12,selected=6),
-		numericInput("topn", "# Fondos a Invertir:", 2),
-		numericInput("keepn", "Mantener mientras ranking no baje de:", 6),				
+		selectInput("momLen", strong("Período Momentum"), choices =  1:12,selected=6),
+		numericInput("topn", "# Fondos a Invertir", 2),
+		numericInput("keepn", "Mantener mientras ranking no baje de", 6),				
 		br(),
 		submitButton("Ejecutar"),
 		htmlOutput("Status")
@@ -52,7 +52,6 @@ shinyUI(pageWithSidebar(
 				a("Shiny", href="http://www.rstudio.com/shiny/", target="_blank"), 				
 				'. Basado en',
 				a('Multi-Asset Backtest : Rotational Trading Strategies', href="http://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/", target="_blank"),
-				'post.'), 				
 				p('La estrategia de rotacion de sectores selecciona los mejores N fondos (ej 2 fondos) basado en Momentum (ej. mejor retorno de últimos 6 meses)
 				y ajusta la permanencia solo si estos fondos caen en su ranking de momentum bajo un cierto nivel.
 				Se basa también en',		
