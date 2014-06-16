@@ -55,7 +55,8 @@ shinyUI(pageWithSidebar(
 				y ajusta la permanencia solo si estos fondos caen en su ranking de momentum bajo un cierto nivel.
 				Se basa también en',		
 				a('ETF Sector Strategy', href="http://www.etfscreen.com/sectorstrategy.php", target="_blank"),
-				'publicado por', a('ETF Screen', href="http://www.etfscreen.com", target="_blank")),				
+				'publicado por',
+				a('ETF Screen', href="http://www.etfscreen.com", target="_blank"),				
 
 
 				br(),
