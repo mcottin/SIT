@@ -10,7 +10,7 @@ shinyUI(pageWithSidebar(
 	# Sidebar with a slider input for number of observations
 	sidebarPanel( 
 		strong("ALGORITMO DE ROTACION  DE  SECTORES"),
-		br(),br(),
+		br(),
 		tags$label("separados por coma o una nueva linea:"),
 		tags$textarea(id = "symbols", rows=10, cols=10, "XLY,XLP,XLE,XLF\nXLV,XLI,XLB,XLK\nXLU"),
 		#createNonReactiveTextInputCustom("symbols", "Yahoo Ticker(s) separated by comma or new line:", "textarea", "Update", enableEnter=F, opts=list(rows=10, cols=10, "XLY,XLP,XLE,XLF\nXLV,XLI,XLB,XLK\nXLU")),
