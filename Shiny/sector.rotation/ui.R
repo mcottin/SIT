@@ -9,7 +9,7 @@ shinyUI(pageWithSidebar(
 
 	# Sidebar with a slider input for number of observations
 	sidebarPanel(   
-		tags$label("Yahoo Ticker(s) separated by comma or new line:"),
+		tags$label("Yahoo Ticker(s) separated by WALLY comma or new line:"),
 		tags$textarea(id = "symbols", rows=10, cols=10, "XLY,XLP,XLE,XLF\nXLV,XLI,XLB,XLK\nXLU"),
 		#createNonReactiveTextInputCustom("symbols", "Yahoo Ticker(s) separated by comma or new line:", "textarea", "Update", enableEnter=F, opts=list(rows=10, cols=10, "XLY,XLP,XLE,XLF\nXLV,XLI,XLB,XLK\nXLU")),
 
