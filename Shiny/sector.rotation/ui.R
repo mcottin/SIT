@@ -9,17 +9,17 @@ shinyUI(pageWithSidebar(
 
 	# Sidebar with a slider input for number of observations
 	sidebarPanel(   
-		tags$label("Yahoo Ticker(s) separated by WALLY comma or new line:"),
+		tags$label("Yahoo Ticker(s) separados por coma o nueva linea:"),
 		tags$textarea(id = "symbols", rows=10, cols=10, "XLY,XLP,XLE,XLF\nXLV,XLI,XLB,XLK\nXLU"),
 		#createNonReactiveTextInputCustom("symbols", "Yahoo Ticker(s) separated by comma or new line:", "textarea", "Update", enableEnter=F, opts=list(rows=10, cols=10, "XLY,XLP,XLE,XLF\nXLV,XLI,XLB,XLK\nXLU")),
 
 
 		br(),
-		selectInput("momLen", strong("Momentum Length (months):"), choices =  1:12,selected=6),
+		selectInput("momLen", strong("Momentum Largo (meses):"), choices =  1:12,selected=6),
 		numericInput("topn", "Invest in top # funds:", 2),
-		numericInput("keepn", "Keep position till rank is at least:", 6),				
+		numericInput("keepn", "Mantener Posicion hasta que ranking sea al menos:", 6),				
 		br(),
-		submitButton("Run"),
+		submitButton("Ejecutar"),
 		htmlOutput("status")
 	),
 
@@ -28,60 +28,52 @@ shinyUI(pageWithSidebar(
 	# Show a plot of the generated distribution
 	mainPanel(
 		tabsetPanel(
-			tabPanel("Main", 
+			tabPanel("Principal", 
 				plotOutput("strategyPlot"),
 				br(),
 				tableOutput("sidebysideTable"),
-				h4("Annual Perfromance"),
+				h4("Resultados Anuales"),
 				tableOutput("annualTable"),
-				h4("Transition Map"),
+				h4("Mapa de Allocations"),
 				plotOutput("transitionPlot"),
 				h4("Last 20 Trades"),
 				tableOutput("tradesTable"),				
-				downloadButton("downloadReport", "Download Report"),
-				downloadButton("downloadData", "Download Data"),
+				downloadButton("downloadReport", "Descarga Reporte"),
+				downloadButton("downloadData", "Descarga Data"),
 				br(),
 				br()	
 			),			
         
-			tabPanel("About",
-				p('This application demonstrates how to back-test a ETF Sector strategy using ',
-				a("Shiny", href="http://www.rstudio.com/shiny/", target="_blank"), 'framework and',
-				a("Systematic Investor Toolbox", href="http://systematicinvestor.wordpress.com/systematic-investor-toolbox/", target="_blank"),				
-				'. This example is based on the',
+			tabPanel("Descripción",
+				p('Esta aplicación ejecuta un BackTest a una estrategia de allocation de ETF utilizando ',
+				a("Shiny", href="http://www.rstudio.com/shiny/", target="_blank"), 				
+				'. Basado en',
 				a('Multi-Asset Backtest : Rotational Trading Strategies', href="http://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/", target="_blank"),
 				'post.'), 				
-				p('The Sector Rotation strategy selects top N funds (i.e. 2 funds) based on the momentum (i.e 6 month returns)
-				and adjusts the holdings only if these funds drop their momentum rank below 
-				a threshold (i.e. replace all holdings with momentum rank greater than 6).
-				This study is based on the',		
+				p('La estrategia de rotacion de sectores selecciona los mejores N fondos (ej 2 fondos) basedo en el momentum (ej. mejor retorno de últimos 6 meses)
+				y ajusta la permanencia solo si estos fondos caen en su ranking de momentum bajo un cierto nivel.
+				Se basa también en',		
 				a('ETF Sector Strategy', href="http://www.etfscreen.com/sectorstrategy.php", target="_blank"),
-				'post by', a('ETF Screen', href="http://www.etfscreen.com", target="_blank")),				
+				'publicado por', a('ETF Screen', href="http://www.etfscreen.com", target="_blank")),				
 
 
 				br(),
 
 
-				strong('Author'), p('Michael Kapler', a('Systematic Investor Blog', href="http://systematicinvestor.wordpress.com", target="_blank")),
+				strong('Autor'), p('Mauricio Cottin', a('Systemix Capital', href="http://systemixcapital.cl", target="_blank")),
 
 
 				br(),
 
 
-				strong('Code'), p('Original source code for this application at',
-				a('GitHub', href='https://github.com/systematicinvestor/SIT/Shiny/sector.rotation')),
+				strong('Code'), p('Codigo original para esta estrategia en',
+				a('GitHub', href='https://github.com/mcottin/SIT/Shiny/sector.rotation')),
 
 
 				br(),
 
 
-				strong('References'),
-				p(HTML('<ul>'),
-					HTML('<li>'),a('Multi-Asset Backtest : Rotational Trading Strategies', href="http://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/", target="_blank"),HTML('</li>'),
-        			HTML('<li>'),'The web application is built with the amazing', a("Shiny.", href="http://www.rstudio.com/shiny/", target="_blank"),HTML('</li>'),
-        			HTML('<li>'),a('SIR application by Samuel M. Jenness', href="http://glimmer.rstudio.com/smjenness/SIR/", target="_blank"),HTML('</li>'),
-        			HTML('<li>'),a('SIR application code by Samuel M. Jenness', href="https://github.com/smjenness/Shiny/tree/master/SIR", target="_blank"),HTML('</li>'),
-				HTML('</ul>'))
+			
 			)    
 		)
 	)
