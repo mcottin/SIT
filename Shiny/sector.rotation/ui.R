@@ -70,7 +70,7 @@ shinyUI(pageWithSidebar(
 				a('GitHub', href='https://github.com/mcottin/SIT/Shiny/sector.rotation')),
 
 
-				br(),
+				br()
 
 
 			
