@@ -50,13 +50,13 @@ shinyUI(pageWithSidebar(
 				p('Esta aplicación ejecuta un BackTest a una estrategia de allocation de ETF utilizando ',
 				a("Shiny", href="http://www.rstudio.com/shiny/", target="_blank"), 				
 				'. Basado en',
-				a('Multi-Asset Backtest : Rotational Trading Strategies', href="http://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/", target="_blank"),
+				a('Multi-Asset Backtest : Rotational Trading Strategies', href="http://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/", target="_blank")),
 				p('La estrategia de rotacion de sectores selecciona los mejores N fondos (ej 2 fondos) basado en Momentum (ej. mejor retorno de últimos 6 meses)
 				y ajusta la permanencia solo si estos fondos caen en su ranking de momentum bajo un cierto nivel.
 				Se basa también en',		
 				a('ETF Sector Strategy', href="http://www.etfscreen.com/sectorstrategy.php", target="_blank"),
 				'publicado por',
-				a('ETF Screen', href="http://www.etfscreen.com", target="_blank"),				
+				a('ETF Screen', href="http://www.etfscreen.com", target="_blank")),				
 
 
 				br(),
