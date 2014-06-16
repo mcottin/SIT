@@ -70,7 +70,7 @@ shinyUI(pageWithSidebar(
 
 
 				strong('Code'), p('Codigo original para esta estrategia en',
-				a('GitHub', href='https://github.com/mcottin/SIT/Shiny/sector.rotation')),
+				a('GitHub', href='https://github.com/mcottin/SIT/tree/master/Shiny/sector.rotation')),
 
 
 				br()
