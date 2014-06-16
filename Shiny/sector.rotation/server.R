@@ -141,7 +141,7 @@ shinyServer(function(input, output) {
 	output$strategyPlot <- reactivePlot(function() {
 		models = getBackTest()		
 		plotbt.custom.report.part1(models)  					
-			plota.add.copyright()
+		
 	}, height = 400, width = 600)
 
 
@@ -162,7 +162,7 @@ shinyServer(function(input, output) {
 	output$transitionPlot <- reactivePlot(function() {
 		models = getBackTest()
 		plotbt.transition.map(models[[1]]$weight)
-			plota.add.copyright()
+		
 	}, height = 400, width = 600)
 
 
@@ -188,23 +188,23 @@ shinyServer(function(input, output) {
     		models <<- getBackTest()
     		
     		plotbt.custom.report.part1(models)
-    			plota.add.copyright()
+    		
     		
     		plotbt.custom.report.part2(models[1])
-    			plota.add.copyright()
+    		
     		plotbt.custom.report.part3(models[1], trade.summary=T)
-    			plota.add.copyright()
+    		
     		
     		plotbt.custom.report.part2(models[2])
-    			plota.add.copyright()
+    		
     		plotbt.custom.report.part3(models[2], trade.summary=T)
-    			plota.add.copyright()
+    		
     		
 			# Plot Portfolio Turnover for each strategy
 			data = getData()
 			layout(1)
 			barplot.with.labels(sapply(models, compute.turnover, data), 'Average Annual Portfolio Turnover')    		
-				plota.add.copyright()
+				
       		
 		    dev.off()
     	}
